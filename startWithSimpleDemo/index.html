@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="index.css" rel="stylesheet">
+    <title>React Test</title>
+</head>
+<body>
+    <div>
+        <div class="wrapper">
+            <!--<button class="like_btn">-->
+                <!--<span class="like_text">like</span>-->
+            <!--</button>-->
+            <!--<button class="dislike_btn">-->
+                <!--<span class="dislike_text">dislike</span>-->
+            <!--</button>-->
+        </div>
+    </div>
+</body>
+<script src="index.js"></script>
+<script>
+    // you need to create first then you can select it,so this block is in the front
+    // add dom
+
+    // const wrapper = document.querySelector('.wrapper')
+    // const likeButton1 = new likeButton()
+    // wrapper.innerHTML = likeButton1.render()
+    //
+    // // attention here is += , not =
+    // const likeButton2 = new likeButton()
+    // wrapper.innerHTML += likeButton2.render()
+
+    // over
+
+    // add eventListener
+    // const button = document.querySelector('.like_btn')
+    // const buttonText = button.querySelector('.like_text')
+    // let isLike = false;
+    // button.addEventListener('click',()=>{
+    //     isLike = !isLike
+    //     if(isLike){
+    //         buttonText.innerHTML = 'cancel'
+    //     }else {
+    //         buttonText.innerHTML = 'like'
+    //     }
+    // }, false)
+
+
+
+
+
+    // let's try out the new func which return the dom element
+    // but this time we use the dom api
+    const wrapper = document.querySelector('.wrapper')
+    const likeButton1 = new likeButton()
+    wrapper.appendChild(likeButton1.render())
+    const likeButton2 = new likeButton()
+    wrapper.appendChild(likeButton2.render())
+
+
+</script>
+</html>

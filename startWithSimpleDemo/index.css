@@ -1,0 +1,19 @@
+.wrapper{
+    padding-left:40%;
+    width:15em;
+    text-align: center;
+}
+
+.wrapper div{
+    display: inline-block;
+}
+
+.like_btn{
+    width: 7em;
+    height: auto;
+}
+
+.dislike_btn{
+    width: 7em;
+    height: auto;
+}
