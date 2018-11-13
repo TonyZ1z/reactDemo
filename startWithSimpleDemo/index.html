@@ -51,12 +51,33 @@
 
     // let's try out the new func which return the dom element
     // but this time we use the dom api
+    // 2018.11.12
+    // const wrapper = document.querySelector('.wrapper')
+    // const likeButton1 = new likeButton()
+    // wrapper.appendChild(likeButton1.render())
+    // const likeButton2 = new likeButton()
+    // wrapper.appendChild(likeButton2.render())
+
+
+    // 2018.11.13
     const wrapper = document.querySelector('.wrapper')
     const likeButton1 = new likeButton()
-    wrapper.appendChild(likeButton1.render())
+    wrapper.appendChild(likeButton1.render()) // inset the dom element at the first time
+    // insert the newOne element in the front of the oldOne element
+    likeButton1.onStateChange = (oldOne,newOne) =>{
+        wrapper.insertBefore(newOne,oldOne)
+        wrapper.removeChild(oldOne)
+    }
     const likeButton2 = new likeButton()
     wrapper.appendChild(likeButton2.render())
+    likeButton2.onStateChange = (oldOne,newOne) =>{
+        wrapper.insertBefore(newOne,oldOne)
+        wrapper.removeChild(oldOne)
+    }
 
+    const newButton = new LikeButton()
+    // wrapper.appendChild(newButton._renderDOM())
+    mount(newButton,wrapper)
 
 </script>
 </html>
