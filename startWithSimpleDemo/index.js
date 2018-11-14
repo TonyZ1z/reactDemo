@@ -80,6 +80,12 @@ class likeButton{
 
 // here is the father class
 class Component {
+    // 2018.11.14
+    // add constructor func
+    constructor(props = {}){
+        this.props = props
+    }
+
     setState(state){
         const oldOne = this.el
         this.state = state
@@ -112,9 +118,13 @@ const mount = (component,wrapper) => {
 
 // here we rewrite the button class
 class LikeButton extends Component{
-    constructor(){
-        super() // use to visit the class Component's func
-        this.state = { isLike:false }
+    // when use this class,give the props
+    constructor(props){
+        // transfer the props to the father class
+        super(props) // use to visit the class Component's func
+        this.state = {
+            isLike:false
+        }
     }
 
     onClick(){
@@ -124,10 +134,54 @@ class LikeButton extends Component{
     }
 
     render(){
-        return `
+        if(this.props.bgColor)  {
+            return `
+         <button class="like_btn" style="background-color: ${this.props.bgColor}">
+             <span class="like_text">${this.state.isLike ? 'cancel' : 'like'}</span>
+         </button>`
+        }else   {
+            return `
          <button class="like_btn">
              <span class="like_text">${this.state.isLike ? 'cancel' : 'like'}</span>
          </button>`
+        }
     }
 }
 
+class changeColorButton extends Component{
+    constructor(props){
+        super(props)
+        // console.log(props)
+        // console.log(props.color)
+        // console.log(props.color[0])
+        // console.log(props.color[1])
+        this.state = {
+            index:0,
+            color:this.props.color[0]
+        }
+    }
+
+    onClick(){
+        if(this.state.index){
+            // index === 1
+            // console.log(this.state.index)
+            this.setState({
+                index:this.state.index-1,
+                color:this.props.color[0]
+            })
+        }else{
+            // console.log('1111')
+            // console.log(this.state.color[1])
+            this.setState({
+                index:this.state.index+1,
+                color:this.props.color[1]
+            })
+        }
+    }
+    render(){
+        return `
+         <button class="like_btn" style="background-color: ${this.state.color}">
+             <span class="like_text">changeColor</span>
+         </button>`
+    }
+}
