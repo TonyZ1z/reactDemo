@@ -214,6 +214,8 @@ class LikeButton extends Component{
     }
 }
 
+
+
 class Dog extends Component{
     constructor(){
         super()
@@ -298,6 +300,40 @@ class Screen extends Component{
 }
 
 
+// if write like this,one func is an element.But it accepts props and has a render function only.
+// So it can't use the structor
+const HelloWorld = (props) =>{
+    const sayHi = (event) =>alert(props.str)
+    return (
+        <div onClick={sayHi}>
+            hi~
+        </div>
+    )
+}
+
+// use map to get a list into the page
+const users = [
+    {name:'Tom',age:'21'},
+    {name:'Aton',age:'22'},
+    {name:'Tony',age:'20'}
+]
+
+class Users extends Component{
+    render(){
+        const { user } = this.props
+        return (
+            <div>
+                <div>name:{user.name}</div>
+                <div>age:{user.age}</div>
+                <hr/>
+            </div>
+        )
+    }
+}
+
+
+
+
 class IndexClass extends Component{
     render(){
 
@@ -314,6 +350,10 @@ class IndexClass extends Component{
                 <TestBindDouble/>
                 <TestBindDouble2/>
                 <Computer/>
+                <HelloWorld str="1111"/>
+                <div>
+                    {users.map((user,key) => <Users key={key} user={user}/>)}
+                </div>
             </div>
         )
     }
